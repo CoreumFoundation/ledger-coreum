@@ -1,6 +1,6 @@
-# Ledger Cosmos app
+# Ledger Coreum app
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GithubActions](https://github.com/cosmos/ledger-cosmos/actions/workflows/main.yml/badge.svg)](https://github.com/cosmos/ledger-cosmos/blob/main/.github/workflows/main.yaml)
+[![GithubActions](https://github.com/CoreumFoundation/ledger-coreum/actions/workflows/main.yml/badge.svg)](https://github.com/CoreumFoundation/ledger-coreum/blob/main/.github/workflows/main.yaml)
 
 ---
 
@@ -11,9 +11,9 @@ _Please visit our website at [zondax.ch](zondax.ch)_
 
 ---
 
-This project contains the Cosmos app for Ledger Nano S and X.
+This project contains the Coreum app for Ledger Nano S and X.
 
-- Ledger Nano S/X Cosmos app
+- Ledger Nano S/X Coreum app
 - Specs / Documentation
 - C++ unit tests
 - Zemu tests
@@ -105,7 +105,6 @@ If you see conan is not found, check that you installed the package in the same 
     ```bash
     make cpp_test
     ```
-
 - Running device emulation+integration tests!!
 
    ```bash
@@ -137,7 +136,6 @@ make zemu_test
 To run a single specific test:
 
 > At the moment, the recommendation is to run from the IDE. Remember to run `make` if you change the app.
-
 ## Using a real device
 
 ### How to prepare your DEVELOPMENT! device:
