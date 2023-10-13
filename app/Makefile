@@ -32,15 +32,15 @@ $(info ************ TARGET_NAME  = [$(TARGET_NAME)])
 include $(CURDIR)/../deps/ledger-zxlib/makefiles/Makefile.app_testing
 
 ifndef COIN
-COIN=ATOM
+COIN=CORE
 endif
 
 $(info COIN  = [$(COIN)])
 
-ifeq ($(COIN),ATOM)
+ifeq ($(COIN),CORE)
 # Main app configuration
-APPNAME = "Cosmos"
-APPPATH = "44'/118'"
+APPNAME = "Coreum"
+APPPATH = "44'/990'"
 else
 define error_message
 
@@ -107,7 +107,7 @@ dep/%.d: %.c Makefile
 
 .PHONY: listvariants
 listvariants:
-	@echo VARIANTS COIN ATOM
+	@echo VARIANTS COIN CORE
 
 .PHONY: version
 version:
