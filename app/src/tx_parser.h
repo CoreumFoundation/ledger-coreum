@@ -1,7 +1,7 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "modernize-deprecated-headers"
 /*******************************************************************************
-*   (c) 2018, 2019 Zondax GmbH
+*   (c) 2018 - 2023 Zondax AG
 *
 *  Licensed under the Apache License, Version 2.0 (the "License");
 *  you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 ********************************************************************************/
 
 #pragma once
+
+#ifdef __cplusplus
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "modernize-deprecated-headers"
+#endif
 
 #include "json/json_parser.h"
 #include <stdint.h>
@@ -65,6 +70,5 @@ __Z_INLINE bool is_msg_from_field(char *field_name) {
 
 #ifdef __cplusplus
 }
-#endif
-
 #pragma clang diagnostic pop
+#endif

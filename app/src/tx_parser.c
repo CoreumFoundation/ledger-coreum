@@ -1,7 +1,7 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "misc-no-recursion"
 /*******************************************************************************
-*   (c) 2018, 2019 Zondax GmbH
+*   (c) 2018 - 2023 Zondax AG
 *
 *  Licensed under the Apache License, Version 2.0 (the "License");
 *  you may not use this file except in compliance with the License.
@@ -15,6 +15,11 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 ********************************************************************************/
+
+#ifdef __cplusplus
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "misc-no-recursion"
+#endif
 
 #include <jsmn.h>
 #include "tx_parser.h"
@@ -254,4 +259,6 @@ parser_error_t tx_traverse_find(uint16_t root_token_index, uint16_t *ret_value_t
     return parser_query_no_results;
 }
 
+#ifdef __cplusplus
 #pragma clang diagnostic pop
+#endif

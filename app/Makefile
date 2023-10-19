@@ -1,6 +1,6 @@
 #*******************************************************************************
 #  Ledger App
-#  (c) 2018 - 2022 Zondax GmbH
+#  (c) 2018 - 2023 Zondax AG
 #  (c) 2017 Ledger
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
@@ -54,7 +54,7 @@ endif
 
 APP_LOAD_PARAMS = --curve secp256k1 $(COMMON_LOAD_PARAMS) --path $(APPPATH)
 
-NANOS_STACK_SIZE:=1815
+NANOS_STACK_SIZE:=1444
 include $(CURDIR)/../deps/ledger-zxlib/makefiles/Makefile.devices
 
 $(info TARGET_NAME  = [$(TARGET_NAME)])
@@ -65,35 +65,14 @@ $(error ICONNAME is not set)
 endif
 
 include $(CURDIR)/../deps/ledger-zxlib/makefiles/Makefile.platform
-LDFLAGS += -z muldefs
-CFLAGS += -Wvla
 
 DEFINES += HAVE_HASH HAVE_BLAKE2 HAVE_SHA256 HAVE_SHA512
 
-APP_SOURCE_PATH += $(MY_DIR)/src
-APP_SOURCE_PATH += $(MY_DIR)/glyphs
-APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/include
-APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/src
-APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/app/common
-APP_SOURCE_PATH += $(MY_DIR)/../deps/ledger-zxlib/app/ui
 APP_SOURCE_PATH += $(MY_DIR)/../deps/jsmn/src
-
-# NanoX SDK does not allow += in APP_SOURCE_PATH or INCLUDES_PATH
-CFLAGS += -I$(MY_DIR)/../deps/tinycbor/src
-APP_SOURCE_PATH += $(MY_DIR)/../deps/tinycbor-ledger
 
 .PHONY: rust
 rust:
 	@echo "No rust code"
-#	cd rust && CARGO_HOME="$(CURDIR)/rust/.cargo" cargo build --target thumbv6m-none-eabi --release
-
-# Before linking, we need to be sure rust lib is there
-bin/app.elf: rust
-
-.PHONY: rust_clean
-rust_clean:
-	@echo "No rust code"
-#	cd rust && CARGO_HOME="$(CURDIR)/rust/.cargo" cargo clean
 
 clean: rust_clean
 

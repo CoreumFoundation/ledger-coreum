@@ -76,7 +76,6 @@ cmake-build-fuzz/
 /app/bin/
 /app/debug/
 /app/obj/
-/app/build/
 
 \deps/*
 !\deps/nanos-secure-sdk
@@ -92,6 +91,8 @@ app/src/glyphs.h
 /build
 .vscode/dryrun.log
 .vscode/targets.log
+app/build/*
+.DS_Store
 
 fuzz-*.log
 /fuzz/corpora
