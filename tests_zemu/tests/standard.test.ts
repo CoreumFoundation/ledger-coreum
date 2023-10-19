@@ -74,8 +74,8 @@ describe('Standard', function () {
       const app = new CosmosApp(sim.getTransport())
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 5, 0, 3]
-      const resp = await app.getAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 5, 0, 3]
+      const resp = await app.getAddressAndPubKey(path, 'core')
 
       console.log(resp)
 
@@ -85,7 +85,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('cosmos1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykwsld65')
+      expect(resp.bech32_address).toEqual('core1y40urz276yl3kn7a5tyz5dfxz5v93djv5dt3x2')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()
@@ -99,8 +99,8 @@ describe('Standard', function () {
       const app = new CosmosApp(sim.getTransport())
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 5, 0, 3]
-      const respRequest = app.showAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 5, 0, 3]
+      const respRequest = app.showAddressAndPubKey(path, 'core')
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
       await sim.compareSnapshotsAndApprove('.', `${m.prefix.toLowerCase()}-show_address`)
@@ -114,7 +114,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('cosmos1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykwsld65')
+      expect(resp.bech32_address).toEqual('core1y40urz276yl3kn7a5tyz5dfxz5v93djv5dt3x2')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()
@@ -128,8 +128,8 @@ describe('Standard', function () {
       const app = new CosmosApp(sim.getTransport())
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 2147483647, 0, 4294967295]
-      const resp = await app.showAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 2147483647, 0, 4294967295]
+      const resp = await app.showAddressAndPubKey(path, 'core')
       console.log(resp)
 
       expect(resp.return_code).toEqual(0x6985)
@@ -151,8 +151,8 @@ describe('Standard', function () {
       await sim.clickLeft()
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 2147483647, 0, 4294967295]
-      const respRequest = app.showAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 2147483647, 0, 4294967295]
+      const respRequest = app.showAddressAndPubKey(path, 'core')
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -167,7 +167,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('cosmos1ex7gkwwmq4vcgdwcalaq3t20pgwr37u6ntkqzh')
+      expect(resp.bech32_address).toEqual('core1r9crcywusd7zv5ezyswka5jp7ahpt5uze6k7j3')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()
@@ -180,11 +180,11 @@ describe('Standard', function () {
       await sim.start({ ...DEFAULT_OPTIONS, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_basic), "utf-8")
 
       // get address / publickey
-      const respPk = await app.getAddressAndPubKey(path, 'cosmos')
+      const respPk = await app.getAddressAndPubKey(path, 'core')
       expect(respPk.return_code).toEqual(0x9000)
       expect(respPk.error_message).toEqual('No errors')
       console.log(respPk)
@@ -225,11 +225,11 @@ describe('Standard', function () {
       await sim.start({ ...DEFAULT_OPTIONS, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_basic2), "utf-8")
 
       // get address / publickey
-      const respPk = await app.getAddressAndPubKey(path, 'cosmos')
+      const respPk = await app.getAddressAndPubKey(path, 'core')
       expect(respPk.return_code).toEqual(0x9000)
       expect(respPk.error_message).toEqual('No errors')
       console.log(respPk)
@@ -269,11 +269,11 @@ describe('Standard', function () {
       await sim.start({ ...DEFAULT_OPTIONS, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_basic), "utf-8")
 
       // get address / publickey
-      const respPk = await app.getAddressAndPubKey(path, 'cosmos')
+      const respPk = await app.getAddressAndPubKey(path, 'core')
       expect(respPk.return_code).toEqual(0x9000)
       expect(respPk.error_message).toEqual('No errors')
       console.log(respPk)
@@ -314,12 +314,12 @@ describe('Standard', function () {
       await sim.start({ ...DEFAULT_OPTIONS, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(ibc_denoms), "utf-8")
 
 
       // get address / publickey
-      const respPk = await app.getAddressAndPubKey(path, 'cosmos')
+      const respPk = await app.getAddressAndPubKey(path, 'core')
       expect(respPk.return_code).toEqual(0x9000)
       expect(respPk.error_message).toEqual('No errors')
       console.log(respPk)

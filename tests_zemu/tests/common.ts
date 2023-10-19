@@ -22,20 +22,17 @@ export const TEXTUAL_TX = 0x1
 export const APP_SEED = 'equip will roof matter pink blind book anxiety banner elbow sun young'
 
 const APP_PATH_S = Resolve('../app/output/app_s.elf')
-const APP_PATH_X = Resolve('../app/output/app_x.elf')
 const APP_PATH_SP = Resolve('../app/output/app_s2.elf')
 
 export const DEFAULT_OPTIONS = {
   ...DEFAULT_START_OPTIONS,
   logging: true,
   custom: `-s "${APP_SEED}"`,
-  pressDelay: 1500,
   X11: false,
 }
 
 export const DEVICE_MODELS: IDeviceModel[] = [
   { name: 'nanos', prefix: 'S', path: APP_PATH_S },
-  { name: 'nanox', prefix: 'X', path: APP_PATH_X },
   { name: 'nanosp', prefix: 'SP', path: APP_PATH_SP },
 ]
 
@@ -55,7 +52,7 @@ export const example_tx_str_msgMultiSend = {
           "value": {
             "inputs":[
               {
-                "address":"cosmos1w4efqfklkezgyt6lncjdwxncrzyzpr2efzcqal",
+                "address":"core1w4efqfklkezgyt6lncjdwxncrzyzpr2efzcqal",
                 "coins":[
                   {
                     "amount":"30",
@@ -66,7 +63,7 @@ export const example_tx_str_msgMultiSend = {
             ],
             "outputs":[
               {
-                "address":"cosmos184hgxlzat3qhm7p28563w4jyw4aa3wcgnj6gtv",
+                "address":"core184hgxlzat3qhm7p28563w4jyw4aa3wcgnj6gtv",
                 "coins":[
                   {
                     "amount":"10",
@@ -75,7 +72,7 @@ export const example_tx_str_msgMultiSend = {
                 ]
               },
               {
-                "address":"cosmos1pfyz36qx8z8dm8ktd75mwx5j5vsmkzfn7wrgp9",
+                "address":"core1pfyz36qx8z8dm8ktd75mwx5j5vsmkzfn7wrgp9",
                 "coins":[
                   {
                     "amount":"10",
@@ -84,7 +81,7 @@ export const example_tx_str_msgMultiSend = {
                 ]
               },
               {
-                "address":"cosmos1xu388ml6krya3ysmlrup2ylxjtzhl4hlaem3ng",
+                "address":"core1xu388ml6krya3ysmlrup2ylxjtzhl4hlaem3ng",
                 "coins":[
                   {
                     "amount":"10",
@@ -101,12 +98,12 @@ export const example_tx_str_msgMultiSend = {
 
 export const example_tx_str_basic = {
   account_number: '108',
-  chain_id: 'cosmoshub-4',
+  chain_id: 'coreum-mainnet-1',
   fee: {
     amount: [
       {
         amount: '600',
-        denom: 'uatom',
+        denom: 'ucore',
       },
     ],
     gas: '200000',
@@ -116,15 +113,15 @@ export const example_tx_str_basic = {
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
-        validator_address: 'cosmosvaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x',
+        delegator_address: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        validator_address: 'corevaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x',
       },
     },
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
-        validator_address: 'cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0',
+        delegator_address: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        validator_address: 'corevaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0',
       },
     },
   ],
@@ -133,12 +130,12 @@ export const example_tx_str_basic = {
 
 export const example_tx_str_expert = {
   account_number: '108',
-  chain_id: 'cosmoshub-2',
+  chain_id: 'coreum-mainnet-1',
   fee: {
     amount: [
       {
         amount: '600',
-        denom: 'uatom',
+        denom: 'ucore',
       },
     ],
     gas: '200000',
@@ -148,15 +145,15 @@ export const example_tx_str_expert = {
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah',
-        validator_address: 'cosmosvaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x',
+        delegator_address: 'core1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah',
+        validator_address: 'corevaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x',
       },
     },
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah',
-        validator_address: 'cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0',
+        delegator_address: 'core1kky4yzth6gdrm8ga5zlfwhav33yr7hl87jycah',
+        validator_address: 'corevaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0',
       },
     },
   ],
@@ -165,12 +162,12 @@ export const example_tx_str_expert = {
 
 export const example_tx_str_combined = {
   account_number: '108',
-  chain_id: 'cosmoshub-4',
+  chain_id: 'coreum-mainnet-1',
   fee: {
     amount: [
       {
         amount: '600',
-        denom: 'uatom',
+        denom: 'ucore',
       },
     ],
     gas: '200000',
@@ -180,8 +177,8 @@ export const example_tx_str_combined = {
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
-        validator_address: 'cosmosvaloper1648ynlpdw7fqa2axt0w2yp3fk542junl7rsvq6',
+        delegator_address: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        validator_address: 'corevaloper1648ynlpdw7fqa2axt0w2yp3fk542junl7rsvq6',
       },
     },
     {
@@ -189,10 +186,10 @@ export const example_tx_str_combined = {
       value: {
         amount: {
           amount: '20139397',
-          denom: 'uatom',
+          denom: 'ucore',
         },
-        delegator_address: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
-        validator_address: 'cosmosvaloper1648ynlpdw7fqa2axt0w2yp3fk542junl7rsvq6',
+        delegator_address: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        validator_address: 'corevaloper1648ynlpdw7fqa2axt0w2yp3fk542junl7rsvq6',
       },
     },
   ],
@@ -201,7 +198,7 @@ export const example_tx_str_combined = {
 
 export const example_tx_str_basic2 = {
   account_number: '482',
-  chain_id: 'cosmoshub-4',
+  chain_id: 'coreum-mainnet-1',
   fee: {
     amount: [],
     gas: '10000000',
@@ -214,11 +211,11 @@ export const example_tx_str_basic2 = {
         coins: [
           {
             amount: '20139397',
-            asset: 'uatom',
+            asset: 'ucore',
           },
         ],
         memo: 'memo_text_goes_here',
-        signer: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        signer: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
       },
     },
   ],
@@ -227,13 +224,13 @@ export const example_tx_str_basic2 = {
 
 export const example_tx_str_basic_extra_fields = {
   account_number: '108',
-  chain_id: 'cosmoshub-4',
+  chain_id: 'coreum-mainnet-1',
   extra_field: 'empty',
   fee: {
     amount: [
       {
         amount: '600',
-        denom: 'uatom',
+        denom: 'ucore',
       },
     ],
     gas: '200000',
@@ -244,15 +241,15 @@ export const example_tx_str_basic_extra_fields = {
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
-        validator_address: 'cosmosvaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x',
+        delegator_address: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        validator_address: 'corevaloper1kn3wugetjuy4zetlq6wadchfhvu3x740ae6z6x',
       },
     },
     {
       type: 'cosmos-sdk/MsgWithdrawDelegationReward',
       value: {
-        delegator_address: 'cosmos1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
-        validator_address: 'cosmosvaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0',
+        delegator_address: 'core1w34k53py5v5xyluazqpq65agyajavep2rflq6h',
+        validator_address: 'corevaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u2lcnj0',
       },
     },
   ],
@@ -262,12 +259,12 @@ export const example_tx_str_basic_extra_fields = {
 
 export const ibc_denoms = {
   account_number: "0",
-  chain_id: "cosmoshub-4",
+  chain_id: "coreum-mainnet-1",
   fee: {
     amount: [
       {
         "amount": '5',
-        "denom": 'uatom',
+        "denom": 'ucore',
       }
     ],
     gas: '10000',
@@ -309,7 +306,7 @@ export const setWithdrawAddress = {
       amount: [
         {
           amount: '5000',
-          denom: 'uatom'
+          denom: 'ucore'
         }
       ],
       gas: '200000'
@@ -319,15 +316,15 @@ export const setWithdrawAddress = {
       {
         type: 'cosmos-sdk/MsgSetWithdrawAddress',
         value: {
-          delegator_address: 'cosmos1hr9x0sjvel6z3vt9qny8sdd5gnnlgk0p69d6cv',
-          withdraw_address: 'cosmos12d64j98tjjpqkx70r08aspc4nvntqp2w6wr2de'
+          delegator_address: 'core1hr9x0sjvel6z3vt9qny8sdd5gnnlgk0p69d6cv',
+          withdraw_address: 'core12d64j98tjjpqkx70r08aspc4nvntqp2w6wr2de'
         }
       },
       {
         type: 'cosmos-sdk/MsgWithdrawDelegationReward',
         value: {
-          delegator_address: 'cosmos1hr9x0sjvel6z3vt9qny8sdd5gnnlgk0p69d6cv',
-          validator_address: 'cosmosvaloper13dr26wdygna3s8fdl5tlc45m2le2ydyddxzj49'
+          delegator_address: 'core1hr9x0sjvel6z3vt9qny8sdd5gnnlgk0p69d6cv',
+          validator_address: 'corevaloper13dr26wdygna3s8fdl5tlc45m2le2ydyddxzj49'
         }
       }
     ],
@@ -350,7 +347,7 @@ export const setWithdrawAddress = {
             amount: '10',
             denom: 'stake',
           }],
-          depositor: 'cosmos1xl2256vdh0j68khz9wq88hnyqcq0f5f4za2480',
+          depositor: 'core1xl2256vdh0j68khz9wq88hnyqcq0f5f4za2480',
           proposal_id: '1'
         }
       },

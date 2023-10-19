@@ -43,17 +43,18 @@
        await sim.start({ ...DEFAULT_OPTIONS, model: m.name })
        const app = new CosmosApp(sim.getTransport())
 
-       const path = [44, 118, 0, 0, 0]
+       const path = [44, 990, 0, 0, 0]
        const tx = Buffer.from(tx_sign_textual, 'hex')
+       const hrp = 'core'
 
        // get address / publickey
-       const respPk = await app.getAddressAndPubKey(path, 'cosmos')
+       const respPk = await app.getAddressAndPubKey(path, hrp)
        expect(respPk.return_code).toEqual(0x9000)
        expect(respPk.error_message).toEqual('No errors')
        console.log(respPk)
 
        // do not wait here..
-       const signatureRequest = app.sign(path, tx, TEXTUAL_TX)
+       const signatureRequest = app.sign(path, tx, hrp, TEXTUAL_TX)
 
        // Wait until we are not in the main menu
        await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -61,7 +62,6 @@
 
        const resp = await signatureRequest
        console.log(resp)
-
        expect(resp.return_code).toEqual(0x9000)
        expect(resp.error_message).toEqual('No errors')
        expect(resp).toHaveProperty('signature')
@@ -94,17 +94,18 @@
       await sim.clickBoth()
       await sim.clickLeft()
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(tx_sign_textual, 'hex')
+      const hrp = 'core'
 
       // get address / publickey
-      const respPk = await app.getAddressAndPubKey(path, 'cosmos')
+      const respPk = await app.getAddressAndPubKey(path, hrp)
       expect(respPk.return_code).toEqual(0x9000)
       expect(respPk.error_message).toEqual('No errors')
       console.log(respPk)
 
       // do not wait here..
-      const signatureRequest = app.sign(path, tx, TEXTUAL_TX)
+      const signatureRequest = app.sign(path, tx, hrp, TEXTUAL_TX)
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -125,7 +126,7 @@
       const signature = secp256k1.signatureImport(Uint8Array.from(signatureDER))
 
       const pk = Uint8Array.from(respPk.compressed_pk)
-
+      
       const signatureOk = secp256k1.ecdsaVerify(signature, msgHash, pk)
       expect(signatureOk).toEqual(true)
     } finally {
