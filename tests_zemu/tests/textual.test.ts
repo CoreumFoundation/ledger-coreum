@@ -43,7 +43,7 @@ describe('Textual', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(tx_sign_textual, 'hex')
       const hrp = 'cosmos'
 
@@ -92,9 +92,9 @@ describe('Textual', function () {
       // Change to expert mode so we can skip fields
       await sim.toggleExpertMode()
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(tx_sign_textual, 'hex')
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)

@@ -54,9 +54,9 @@ describe('Amino', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_basic), "utf-8")
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
@@ -100,9 +100,9 @@ describe('Amino', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_basic2))
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
@@ -145,9 +145,9 @@ describe('Amino', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_basic))
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
@@ -191,9 +191,9 @@ describe('Amino', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(ibc_denoms))
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
@@ -237,9 +237,9 @@ describe('Amino', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(setWithdrawAddress))
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
@@ -283,9 +283,9 @@ describe('Amino', function () {
       await sim.start({ ...defaultOptions, model: m.name })
       const app = new CosmosApp(sim.getTransport())
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(cliGovDeposit))
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
@@ -332,9 +332,9 @@ describe('Amino', function () {
       // Activate expert mode
       await sim.toggleExpertMode();
 
-      const path = [44, 118, 0, 0, 0]
+      const path = [44, 990, 0, 0, 0]
       const tx = Buffer.from(JSON.stringify(example_tx_str_msgMultiSend))
-      const hrp = 'cosmos'
+      const hrp = 'core'
 
       // get address / publickey
       const respPk = await app.getAddressAndPubKey(path, hrp)
