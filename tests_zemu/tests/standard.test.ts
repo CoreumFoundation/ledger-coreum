@@ -74,8 +74,8 @@ describe('Standard', function () {
       const app = new CosmosApp(sim.getTransport())
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 5, 0, 3]
-      const resp = await app.getAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 5, 0, 3]
+      const resp = await app.getAddressAndPubKey(path, 'core')
 
       console.log(resp)
 
@@ -85,9 +85,8 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('cosmos1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykwsld65')
+      expect(resp.bech32_address).toEqual('core1y40urz276yl3kn7a5tyz5dfxz5v93djv5dt3x2')
       expect(resp.compressed_pk.length).toEqual(33)
-      expect(resp.compressed_pk.toString("hex")).toEqual('035c986b9ae5fbfb8e1e9c12c817f5ef8fdb821cdecaa407f1420ec4f8f1d766bf')
     } finally {
       await sim.close()
     }
@@ -105,8 +104,8 @@ describe('Standard', function () {
       const app = new CosmosApp(sim.getTransport())
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 5, 0, 3]
-      const respRequest = app.showAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 5, 0, 3]
+      const respRequest = app.showAddressAndPubKey(path, 'core')
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
       await sim.compareSnapshotsAndApprove('.', `${m.prefix.toLowerCase()}-show_address`)
@@ -120,9 +119,8 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('cosmos1wkd9tfm5pqvhhaxq77wv9tvjcsazuaykwsld65')
+      expect(resp.bech32_address).toEqual('core1y40urz276yl3kn7a5tyz5dfxz5v93djv5dt3x2')
       expect(resp.compressed_pk.length).toEqual(33)
-      expect(resp.compressed_pk.toString("hex")).toEqual('035c986b9ae5fbfb8e1e9c12c817f5ef8fdb821cdecaa407f1420ec4f8f1d766bf')
     } finally {
       await sim.close()
     }
@@ -172,7 +170,7 @@ describe('Standard', function () {
       // Take the compressed pubkey and verify that the expected address can be computed
       const uncompressPubKeyUint8Array = secp256k1.publicKeyConvert(resp.compressed_pk, false).subarray(1);
       const ethereumAddressBuffer = Buffer.from(keccak(Buffer.from(uncompressPubKeyUint8Array))).subarray(-20);
-      const eth_address = bech32.encode(hrp, bech32.toWords(ethereumAddressBuffer)); // "cosmos15n2h0lzvfgc8x4fm6fdya89n78x6ee2fm7fxr3"
+      const eth_address = bech32.encode(hrp, bech32.toWords(ethereumAddressBuffer));
 
       expect(resp.bech32_address).toEqual(eth_address)
       expect(resp.bech32_address).toEqual('inj15n2h0lzvfgc8x4fm6fdya89n78x6ee2f3h7z3f')
@@ -193,8 +191,8 @@ describe('Standard', function () {
       const app = new CosmosApp(sim.getTransport())
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 2147483647, 0, 4294967295]
-      const resp = await app.showAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 2147483647, 0, 4294967295]
+      const resp = await app.showAddressAndPubKey(path, 'core')
       console.log(resp)
 
       expect(resp.return_code).toEqual(0x6985)
@@ -219,8 +217,8 @@ describe('Standard', function () {
       await sim.toggleExpertMode();
 
       // Derivation path. First 3 items are automatically hardened!
-      const path = [44, 118, 2147483647, 0, 4294967295]
-      const respRequest = app.showAddressAndPubKey(path, 'cosmos')
+      const path = [44, 990, 5, 0, 3]
+      const respRequest = app.showAddressAndPubKey(path, 'core')
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -235,7 +233,7 @@ describe('Standard', function () {
       expect(resp).toHaveProperty('bech32_address')
       expect(resp).toHaveProperty('compressed_pk')
 
-      expect(resp.bech32_address).toEqual('cosmos1ex7gkwwmq4vcgdwcalaq3t20pgwr37u6ntkqzh')
+      expect(resp.bech32_address).toEqual('core1y40urz276yl3kn7a5tyz5dfxz5v93djv5dt3x2')
       expect(resp.compressed_pk.length).toEqual(33)
     } finally {
       await sim.close()

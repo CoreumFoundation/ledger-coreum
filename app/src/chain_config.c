@@ -24,7 +24,7 @@ typedef struct {
 
 // To enable custom config for a new chain, just add a new entry in this array with path, hrp and encoding
 static const chain_config_t chainConfig[] = {
-    // {118, cosmos, BECH32_COSMOS},
+    // {990, core, BECH32_COSMOS},
     {60, "inj", BECH32_ETH},
     {60, "evmos", BECH32_ETH}
 };
@@ -32,7 +32,7 @@ static const chain_config_t chainConfig[] = {
 static const uint32_t chainConfigLen = sizeof(chainConfig) / sizeof(chainConfig[0]);
 
 address_encoding_e checkChainConfig(uint32_t path, const char* hrp, uint8_t hrpLen) {
-    // Always allowed for 118 (default Cosmos)
+    // Always allowed for 990 (default Coreum)
     if (path == HDPATH_1_DEFAULT) {
         return BECH32_COSMOS;
     }
